@@ -19,9 +19,13 @@ body {
 .cabecalho {
     display: flex;
     justify-content: space-between;
+    position: fixed;
     align-items: center;
+    width: 100vw;
+    height: 72px;
     background-color: #15191C;
-    padding: 8px 16px;
+    padding: 12px 24px;
+    box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
 }
 
@@ -93,13 +97,13 @@ body {
 }
 
 .menu-lateral {
+    margin-top: 72px;
     display: flex;
     flex-direction: column;
     background-color: #15191C;
-    width: 75vw;
+    width: 40vw;
     height: 100vh;
-
-    position: absolute;
+    position: fixed;
     left: -100vw;
     transition: .25s;
 }
@@ -164,16 +168,19 @@ body {
 
 @media screen and (min-width: 1024px) {
     .menu-lateral {
-        position: static;
+        position: fixed;
         width: 200px;
+        left: 0px;
         grid-column: 1;
         grid-row: 1 / span 2;
+        margin-top: 0px;
     }
 }
 
 .principal {
-    padding: 24px 16px;
-    display: grid;
+    padding: 104px 24px 32px;
+    display: flex;
+    flex-direction: column;
     gap: 16px;
 }
 
@@ -185,6 +192,17 @@ body {
 .titulo-secao {
     font-size: 1.2rem;
     font-weight: 700;
+}
+
+@media screen and (min-width: 768px) {
+    .principal {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .titulo-pagina {
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -199,13 +217,13 @@ body {
             "secao-produtos secao-produtos secao-produtos"
         ;
         column-gap: 32px;
-        padding: 16px 60px;
+        padding: 104px 60px 16px;
         grid-column: 2;
+        margin-left: 200px;
     }
 
     .titulo-secao {
         grid-column: span 4;
-        
     }
 }
 
@@ -224,7 +242,7 @@ body {
     padding: 16px;
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1.5fr 1fr;
+    grid-template-rows: auto auto 1fr;
     gap: 8px;
     row-gap: 16px;
 }
@@ -317,7 +335,25 @@ body {
     display: none;
 }
 
+@media screen and (min-width: 768px) {
+    .cartao {
+        width: 48%;
+    }
+
+    .cartao__imagem {
+        width: 100%;
+    }
+
+    .cartao--destaque {
+        width: 100%;
+    }
+}
+    
+
 @media screen and (min-width: 1024px) {
+    .cartao {
+        width: 100%;
+    }
 
     .cartao--destaque {
         margin-bottom: 0;
@@ -393,10 +429,22 @@ body {
     gap: 16px;
 }
 
+@media screen and (min-width: 768px) {
+    .secao {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .titulo-secao {
+        width: 100%;
+    }
+}
+
 @media screen and (min-width: 1024px) {
     .secao {
-        grid-template-columns: repeat(4, 1fr);
+        display: grid;
     }
+
     .destaque-video{
         grid-area: destaque-video;
     }
@@ -421,7 +469,10 @@ body {
     .secao-produtos {
         grid-area: secao-produtos;
     }
-    
+
+    .secao {
+        grid-template-columns: repeat(4, 1fr);
+    }    
 }
 
 
