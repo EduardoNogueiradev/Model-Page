@@ -101,11 +101,17 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #15191C;
-    width: 40vw;
+    width: 75vw;
     height: 100vh;
     position: fixed;
     left: -100vw;
     transition: .25s;
+}
+
+@media screen and (min-width: 768px) {
+    .menu-lateral {
+        width: 40vw; 
+    }
 }
 
 .menu-lateral--ativo {
